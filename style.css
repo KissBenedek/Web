@@ -1,0 +1,15 @@
+div{
+    display: flex;
+    height: 300px;
+    width: 100%;
+}
+
+#z{
+    background-color: green;
+}
+#s{
+    background-color: yellow;
+}
+#l{
+    background-color: purple;
+}
