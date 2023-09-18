@@ -1,0 +1,19 @@
+div{
+    display: flex;
+    height: 300px;
+    width: 100%;
+    
+}
+
+#z{
+    background-color: green;
+    flex: 1;
+}
+#s{
+    background-color: yellow;
+    flex: 2;
+}
+#l{
+    background-color: purple;
+    flex: 1;
+}
