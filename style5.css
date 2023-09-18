@@ -1,0 +1,28 @@
+#d{
+    display: flex;
+    height: 300px;
+    width: 800px;
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+}
+
+#z{
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    display: none;
+}
+#s{
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+    display: none;
+}
+#l{
+    background-color: purple;
+    height: 100px;
+    width: 100px;
+
+    
+}
