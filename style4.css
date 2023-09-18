@@ -1,0 +1,21 @@
+div{
+    display: flex;
+    height: 300px;
+    width: 100%;
+    flex-direction: column;
+}
+
+#z{
+    background-color: green;
+    flex: 1;
+}
+#s{
+    background-color: yellow;
+    flex: 2;
+    order: 1;
+}
+#l{
+    background-color: purple;
+    flex: 1;
+    order: 0;
+}
