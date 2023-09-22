@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+    background-color: bisque;
+}
+
+#vk{
+    height: 100px;
+    width: 42%;
+    background-color:aqua;
+}
+
+#d{
+    display: flex;
+    flex-direction: row;
+    width: 42%;
+}
+
+#n{
+    display: flex;
+    background-color: orange;
+    height: 600px;
+    width: 100px;
+    flex: 1;
+}
+
+#p{
+    display: flex;
+    background-color: red;
+    height: 600px;
+    width: 300px;
+    flex: 4;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+#l{
+    display: flex;
+    background-color: purple;
+    height: 600px;
+    width: 100px;
+    flex: 1;
+}
+
+#sk{
+    background-color: blue;
+    height: 100px;
+    width: 42%;
+}
+
+#f {
+    display: flex;
+    background-color: black;
+    margin-right: 100px;
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    float: right;
+}
