@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Órarend</title>
+</head>
+<body>
+    <button onclick="dark()"><img src="logo.png" alt="dark mode" width="20px" height="20px"></button>
+
+    <div id="d">
+        <div class="s">
+            <header>12.c info</header>
+        </div>
+        <div class="s">
+            <div class="i">
+                <div class="i nap" >Hétfő</div>
+                <div class="i">WI.</div>
+                <div class="i">Aszalfejl.</div>
+                <div class="i">Irodalom</div>
+                <div class="i">Tört.</div>
+                <div class="i">Állami.</div>
+                <div class="i">IKT II.</div>
+                <div class="i">Angol</div>
+                <div class="i">IKT II.</div>
+            </div>
+            
+            <div class="i">
+                <div class="i nap">Kedd</div>
+                <div class="i">Német</div>
+                <div class="i">IpI.</div>
+                <div class="i">Angol</div>
+                <div class="i">Testnevelés</div>
+                <div class="i">Tört.</div>
+                <div class="i">Szang.</div>
+                <div class="i">Matek</div>      
+            </div>
+            <div class="i">
+                <div class="i nap">Szerda</div>
+                <div class="i">Angol</div>
+                <div class="i">Osztfő.</div>
+                <div class="i">Matek</div>
+                <div class="i">Szang.</div>
+                <div class="i">Aszalfejl.</div>
+                <div class="i">Testnevelés</div>
+            </div>
+            <div class="i">
+                <div class="i nap">Csütörtök</div>
+                <div class="i">Emelt tant.</div>
+                <div class="i">Webprog.</div>
+                <div class="i">Aszalfejl.</div>
+                <div class="i">Testnevelés</div>
+                <div class="i">Nyelvtan</div>
+                <div class="i">Német</div>
+                <div class="i">-</div>
+                <div class="i">-</div>
+                <div class="i">Szoftteszt.</div>
+                <div class="i">Szoftteszt.</div>
+            </div>
+            <div class="i">
+                <div class="i nap">Péntek</div>
+                <div class="i">Angol</div>
+                <div class="i">Irodalom</div>
+                <div class="i">Tört.</div>
+                <div class="i">Matek</div>
+                <div class="i">Szang.</div>
+                <div class="i">Aszalfejl.</div>
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+
+   
+    
+    <script>
+        var element = document.getElementById("d");
+        var elements = document.getElementsByClassName("nap");
+        var isWhite = true;
+        var isBlack = true;
+        var isGreen = true;
+    
+        function dark() {
+            if (isWhite) {
+                element.style.backgroundColor = "grey";
+            } else {
+                element.style.backgroundColor = "white";
+            }
+    
+            isWhite = !isWhite;
+    
+            if (isBlack) {
+                element.style.color = "green";
+            } else {
+                element.style.color = "black";
+            }
+    
+            isBlack = !isBlack;
+    
+            for (var i = 0; i < elements.length; i++) 
+            {
+                var element2 = elements[i];
+
+                if (isGreen) {
+                    element2.style.backgroundColor = "black";
+                } 
+                else {
+                    element2.style.backgroundColor = "green";
+                }
+            }
+
+            isGreen = !isGreen;
+
+        }
+    </script>
+    
+</body>
+</html>

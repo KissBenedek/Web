@@ -1,0 +1,52 @@
+body{
+    background-image: url(vasvari.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#d{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 900px;
+    width: 1000px;
+    opacity: 0.5;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    color: black;
+
+}
+
+.s{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.i{
+    font-size: xx-large;
+    font-weight: bold;
+    background-color: burlywood;
+    border: 2px hidden;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.nap{
+    background-color: green;
+    margin-top: 0;
+}
+
+header{
+    font-size: xx-large;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-left: 400px;
+    width: 100%;
+}
+
+button{
+    float: right;
+}
