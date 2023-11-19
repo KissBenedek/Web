@@ -1,0 +1,26 @@
+#container{
+  display: flex;
+  justify-content: center;
+  height: 350px;
+  background-color: aquamarine;
+  width: 100%;
+}
+
+
+.cell {
+  width: 150px;
+  height: 150px;
+  background-color: yellow;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
