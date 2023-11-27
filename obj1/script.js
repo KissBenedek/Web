@@ -4,6 +4,6 @@ obj.firstName = "Paul";
 
 obj.firstName = "";
 
-function nev (){
+function user (){
     console.log(obj.firstName + " " + obj.lastname + "" )
 }
