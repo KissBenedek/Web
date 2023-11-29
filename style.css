@@ -1,0 +1,18 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px; /* Opcionális: cellák közötti térköz */
+  }
+
+  .grid-item 
+  {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hide
+  {
+    visibility: hidden;
+  }
