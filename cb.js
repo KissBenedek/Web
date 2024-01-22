@@ -1,47 +1,47 @@
-const osszeadas = (a, b, callback) => {
-    callback(a + b);
-};
-
-const kivonas = (a, b, callback) => {
-    callback(a - b);
-};
-
-const szorzas = (a, b, callback) => {
-    callback(a * b);
-};
-
-const osztas = (a, b, callback) => {
-    if (b !== 0) {
-        callback(a / b);
-    } else {
-        callback("Hiba: nullával való osztás!");
+function callback() {
+    function osszead(szam1, szam2) {
+        return szam1 + szam2;
     }
-};
 
-const szamol = (muvelet, szam1, szam2, callback) => {
-    switch (muvelet) {
-        case "osszeadas":
-            osszeadas(szam1, szam2, callback);
-            break;
-        case "kivonas":
-            kivonas(szam1, szam2, callback);
-            break;
-        case "szorzas":
-            szorzas(szam1, szam2, callback);
-            break;
-        case "osztas":
-            osztas(szam1, szam2, callback);
-            break;
-        default:
-            callback("Hiba: Ismeretlen művelet!");
+    function kivon(szam1, szam2) {
+        return szam1 - szam2;
     }
-};
 
-const muvelet = "osztas";
-const szam1 = 5;
-const szam2 = 3;
+    function szoroz(szam1, szam2) {
+        return szam1 * szam2;
+    }
 
-szamol(muvelet, szam1, szam2, (eredmeny) => {
-    console.log({szam1} + {szam2},{eredmeny});
-});
+    function oszt(szam1, szam2) {
+        return szam1 / szam2;
+    }
 
+    function szamol(muvelet, szam1, szam2) {
+        switch (muvelet) {
+            case "osszead":
+                return osszead(szam1, szam2);
+            case "kivon":
+                return kivon(szam1, szam2);
+            case "szoroz":
+                return szoroz(szam1, szam2);
+            case "oszt":
+                return oszt(szam1, szam2);
+            default:
+                console.error("Hiba: Ismeretlen művelet!");
+                return undefined;
+        }
+    }
+
+    let eredmeny = szamol("osszead", 5, 3);
+    console.log('Az összeadás eredménye: 8, a számolt érték: ' + eredmeny);
+
+    eredmeny = szamol("kivon", 8, 2);
+    console.log('A kivonás eredménye: 6, a számolt érték: ' + eredmeny);
+
+    eredmeny =  szamol("szoroz", 4, 6);
+    console.log('A szorzás eredménye: 24, a számolt érték: ' + eredmeny);
+
+    eredmeny =  szamol("oszt", 9, 3);
+    console.log('Az osztás eredménye: 3, a számolt érték: ' + eredmeny);
+}
+
+callback();
