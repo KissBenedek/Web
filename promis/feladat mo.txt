@@ -1,0 +1,20 @@
+1. feladat
+
+Kitöröltem a const image = new Image(); változót.
+
+2.feladat
+
+A data-id-t stringént kezeli növelés helyett 1-ket fűz hozzá.
+
+3. feladat
+
+A data-id-t annyivval növeli amekkora számot írunk be. Pl.: +5,  data-id: "5" --> data-id: "10"
+
+4. feladat
+
+Kifogja írni a hiba pontos okát, forrását.
+
+5. feladat
+
+Hibára fog futni és kiírja az ehhez megfelelő üzenetet.
+
