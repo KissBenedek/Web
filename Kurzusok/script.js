@@ -21,12 +21,12 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
           name: courseName
         })
       })
-      const data = await response.json())
+      const data = await response.json()
         // Frissítjük a kurzusokat az új kurzussal
         fetchCourses();
         // Ürítjük az űrlapot
         addCourseForm.reset();
-      )}
+      }
       catch(error){
         console.error('Error adding course:', error);
       }
@@ -35,9 +35,9 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
 
     // Függvény a kurzusok lekérdezéséhez és megjelenítéséhez
     async function fetchCourses() {
-      fetch(coursesUrl)
-        .then(response => response.json())
-        .then(data => {
+      try{
+        const response = await fetch(coursesUrl)
+        const data = await response.json()
           // Frissítjük a kurzusok listáját az űrlaphoz
           updateCourseSelect(data);
           coursesContainer.innerHTML = '';
@@ -54,11 +54,11 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
             `;
             coursesContainer.appendChild(courseDiv);
           });
-        })
-        .catch(error => {
+        }
+        catch(error){
           console.error('Error fetching courses:', error);
-        });
-    }
+        }
+      }
 
     // Függvény a kurzusok frissítéséhez a kiválasztó listában
     function updateCourseSelect(courses) {
@@ -72,13 +72,13 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
     }
 
     // Függvény az új diák hozzárendeléséhez egy kurzushoz
-    function assignStudent(event) {
+    async function assignStudent(event) {
       event.preventDefault();
       
       const courseId = courseSelect.value;
       const studentName = document.getElementById('studentName').value;
-
-      fetch(studentsUrl, {
+      try{
+      const response = await fetch(studentsUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -88,53 +88,53 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
           course_id: courseId
         })
       })
-      .then(response => response.json())
-      .then(data => {
+      const data = await response.json()
         // Frissítjük a kurzusokat az új diákkal
         fetchCourses();
         // Ürítjük az űrlapot
         assignStudentForm.reset();
-      })
-      .catch(error => {
+      }
+      catch(error){
         console.error('Error assigning student:', error);
-      });
+      }
     }
 
 
     // Függvény a diák törléséhez név alapján
-    function deleteStudentByName(event) {
+    async function deleteStudentByName(event) {
       event.preventDefault();
       const deleteStudentName = document.getElementById('deleteStudentName').value;
     
       // Keresés a diákok között a megadott név alapján
-      fetch(studentsUrl)
-        .then(response => response.json())
-        .then(data => {
+      try{
+        const response = await fetch(studentsUrl)
+        const data = await response.json()
           const studentToDelete = data.find(student => student.name === deleteStudentName);
           if (!studentToDelete) {
             console.error('A megadott névvel nem található diák.');
             return;
           }
-        
-          fetch(`${studentsUrl}/${studentToDelete.id}`, {
-            method: 'DELETE'
-          })
-          .then(response => {
-            if (response.ok) {
-              // Sikeres törlés esetén frissítjük a kurzusokat
-              fetchCourses();
-              document.getElementById('deleteStudentByNameForm').reset();
-            } else {
-              throw new Error('Hiba történt a diák törlése közben.');
-            }
-          })
-          .catch(error => {
+          try{
+            const response = await fetch(`${studentsUrl}/${studentToDelete.id}`, {
+              method: 'DELETE'
+            })
+              if (response.ok) {
+                // Sikeres törlés esetén frissítjük a kurzusokat
+                fetchCourses();
+                document.getElementById('deleteStudentByNameForm').reset();
+              } else {
+                throw new Error('Hiba történt a diák törlése közben.');
+              }
+          
+          
+          }
+          catch(error){
             console.error('Hiba történt:', error);
-          });
-        })
-        .catch(error => {
+          }
+        }
+        catch(error){
           console.error('Hiba történt a diákok lekérése közben:', error);
-        });
+        }
     }
 
     // Űrlap eseménykezelője a diák törléséhez név alapján
@@ -149,3 +149,4 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
 
     // Kurzusok lekérdezése és megjelenítése az oldal betöltésekor
     fetchCourses();
+
