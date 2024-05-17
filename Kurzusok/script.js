@@ -77,22 +77,22 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
       
       const courseId = courseSelect.value;
       const studentName = document.getElementById('studentName').value;
-      try{
-      const response = await fetch(studentsUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: studentName,
-          course_id: courseId
-        })
-      })
-      const data = await response.json()
-        // Frissítjük a kurzusokat az új diákkal
-        fetchCourses();
-        // Ürítjük az űrlapot
-        assignStudentForm.reset();
+        try{
+          const response = await fetch(studentsUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name: studentName,
+              course_id: courseId
+            })
+          })
+          const data = await response.json()
+            // Frissítjük a kurzusokat az új diákkal
+            fetchCourses();
+            // Ürítjük az űrlapot
+            assignStudentForm.reset();
       }
       catch(error){
         console.error('Error assigning student:', error);
@@ -133,7 +133,7 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
           }
         }
         catch(error){
-          console.error('Hiba történt a diákok lekérése közben:', error);
+          console.error('Hiba történt a diákok lekérése közben:', loaderror);
         }
     }
 
