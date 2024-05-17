@@ -6,12 +6,13 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
     const courseSelect = document.getElementById('courseSelect');
 
     // Függvény az űrlap kezeléséhez
-    function handleFormSubmit(event) {
+    async function handleFormSubmit(event) {
       event.preventDefault();
       
       const courseName = document.getElementById('courseName').value;
 
-      fetch(coursesUrl, {
+      try{
+        const response = await fetch(coursesUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -20,20 +21,20 @@ const coursesUrl = "https://vvri.pythonanywhere.com/api/courses";
           name: courseName
         })
       })
-      .then(response => response.json())
-      .then(data => {
+      const data = await response.json())
         // Frissítjük a kurzusokat az új kurzussal
         fetchCourses();
         // Ürítjük az űrlapot
         addCourseForm.reset();
-      })
-      .catch(error => {
+      )}
+      catch(error){
         console.error('Error adding course:', error);
-      });
+      }
     }
+    
 
     // Függvény a kurzusok lekérdezéséhez és megjelenítéséhez
-    function fetchCourses() {
+    async function fetchCourses() {
       fetch(coursesUrl)
         .then(response => response.json())
         .then(data => {
