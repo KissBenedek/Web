@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codewars Felhasználói Pontok</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Codewars Felhasználói Pontok</h1>
+
+<nav>
+    <a href="#" id="totalPointsLink">Összesített adatok</a>
+    <a href="#" id="byLanguageLink">Pontok nyelvenként</a>
+    <a href="#" id="leaderboardLink">Toplista</a>
+</nav>
+
+<div id="search">
+    <label for="username">Felhasználónév: </label>
+    <input type="text" id="username" placeholder="Adja meg a felhasználónevet">
+    <button onclick="getUserData()">Keresés</button>
+    <button onclick="addToLeaderboard()">Hozzáadás a toplistához</button> <!-- Új gomb a toplistához -->
+</div>
+
+<!-- Összesített pontok -->
+<div id="totalPoints" class="hidden">
+    <h2>Összesített pontok:</h2>
+    <p id="totalPointsResult"></p>
+</div>
+
+<!-- Pontok nyelvenként -->
+<div id="byLanguage" class="hidden">
+    <h2>Pontok nyelvenként:</h2>
+    <ul id="languagePointsList"></ul>
+</div>
+
+<!-- Hibaüzenet -->
+<div id="error" class="error hidden"></div>
+
+<!-- Toplista -->
+<div id="leaderboard" class="hidden">
+    <h2>Toplista:</h2>
+    <ul id="leaderboardList"></ul>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
